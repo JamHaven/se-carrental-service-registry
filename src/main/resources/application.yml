@@ -18,6 +18,13 @@ eureka:
       defaultZone: http://user:password@localhost:1111/eureka
   server:
     waitTimeInMsWhenSyncEmpty: 0
+zuul:
+  routes:
+    user-service:
+      url: http://localhost:3333
+ribbon:
+  eureka:
+    enabled: true
 logging:
   level:
     root: INFO

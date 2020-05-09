@@ -16,6 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .csrf().disable()
                 .authorizeRequests()
+                //.anyRequest().permitAll();
                 .antMatchers(HttpMethod.GET, "/eureka/**").authenticated() // eureka client
                 .antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
                 .antMatchers(HttpMethod.PUT, "/eureka/**").authenticated() // eureka client
