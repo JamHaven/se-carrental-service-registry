@@ -11,20 +11,31 @@ spring:
 eureka:
   instance:
     hostname: localhost
-  client: #not a client
+  client: #not a client, don't register with yourself
     registerWithEureka: false
-    fetchRegistry: false
+    fetchRegistry: true #set to true for Zuul Gateway
     service-url:
       defaultZone: http://user:password@localhost:1111/eureka
   server:
     waitTimeInMsWhenSyncEmpty: 0
+    enable-self-preservation: false
 zuul:
   routes:
-    user-service:
-      url: http://localhost:3333
+    authentication-service:
+      path: /authentication-service/**
+      serviceId: authentication-service
+      stripPrefix: true
+      #url: http://localhost:2222
+    user-service: /user-service/**
+      #path: /user-service/**
+      #serviceId: user-service
+      #stripPrefix: false
+      #url: http://localhost:3333
+    #car-service:
+      #url: http://localhost:4444
 ribbon:
   eureka:
-    enabled: true
+    enabled: true #false
 logging:
   level:
     root: INFO
