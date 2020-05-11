@@ -26,16 +26,33 @@ zuul:
       serviceId: authentication-service
       stripPrefix: true
       #url: http://localhost:2222
-    user-service: /user-service/**
-      #path: /user-service/**
-      #serviceId: user-service
-      #stripPrefix: false
+    user-service: #/user-service/**
+      path: /user-service/**
+      serviceId: user-service
+      stripPrefix: true
       #url: http://localhost:3333
-    #car-service:
+    car-service:
+      path: /car-service/**
+      serviceId: car-service
+      stripPrefix: true
       #url: http://localhost:4444
+    rental-service:
+      path: /rental-service/**
+      serviceId: rental-service
+      stripPrefix: true
+      #url: http://localhost:5555
 ribbon:
   eureka:
     enabled: true #false
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 11000
 logging:
   level:
     root: INFO
