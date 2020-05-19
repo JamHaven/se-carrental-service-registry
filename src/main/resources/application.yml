@@ -11,6 +11,7 @@ spring:
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
   client: #not a client, don't register with yourself
     registerWithEureka: false
     fetchRegistry: true #set to true for Zuul Gateway
