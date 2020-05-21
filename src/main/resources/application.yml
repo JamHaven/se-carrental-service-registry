@@ -16,7 +16,8 @@ eureka:
     registerWithEureka: false
     fetchRegistry: true #set to true for Zuul Gateway
     service-url:
-      defaultZone: http://user:password@localhost:1111/eureka
+      #defaultZone: http://user:password@localhost:1111/eureka
+      defaultZone: http://localhost:1111/eureka
   server:
     waitTimeInMsWhenSyncEmpty: 0
     enable-self-preservation: false
