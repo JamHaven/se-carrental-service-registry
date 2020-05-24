@@ -22,6 +22,7 @@ eureka:
     waitTimeInMsWhenSyncEmpty: 0
     enable-self-preservation: false
 zuul:
+  sensitiveHeaders:
   routes:
     authentication-service:
       path: /authentication-service/**
