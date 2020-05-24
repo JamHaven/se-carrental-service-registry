@@ -16,13 +16,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .csrf().disable()
                 .authorizeRequests()
-                //.anyRequest().permitAll();
+                //1
+                .anyRequest().permitAll();
+                //2
+                /*
                 .antMatchers(HttpMethod.GET, "/eureka/**").authenticated() // eureka client
-                .antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
-                .antMatchers(HttpMethod.PUT, "/eureka/**").authenticated() // eureka client
-                .antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated() // eureka client
-                .antMatchers(HttpMethod.OPTIONS, "/eureka/**").authenticated() // eureka client
-                .anyRequest().authenticated().and().httpBasic(); // dashboard authorization
+                //.antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
+                //.antMatchers(HttpMethod.PUT, "/eureka/**").authenticated() // eureka client
+                //.antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated() // eureka client
+                //.antMatchers(HttpMethod.OPTIONS, "/eureka/**").authenticated() // eureka client
+                .anyRequest().permitAll()
+                .and().httpBasic(); // dashboard authorization
+                */
     }
 
 }
